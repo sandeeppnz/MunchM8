@@ -1,12 +1,18 @@
 import { CreateUserParams, SignInParams } from "@/type";
-import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite";
+import { Account, Avatars, Client, Databases, ID, Query, Storage } from "react-native-appwrite";
 
 export const appwriteConfig = {
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
     platform: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_NAMESPACE!,
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
     databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASEID!,
-    userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USERCOLLECTIONID!
+    userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USERCOLLECTIONID!,
+
+    bucketId: process.env.EXPO_PUBLIC_APPWRITE_ASSETBUCKETID!,
+    menuCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENUCOLLECTIONID!,
+    categoriesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORYCOLLECTIONID!,
+    customizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONCOLLECTIONID!,
+    menuCustomizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENUCUSTOMIZATIONCOLLECTIONID!
 }
 
 
@@ -20,7 +26,7 @@ client
     
 export const account = new Account(client);
 export const databases = new Databases(client);
-// export const storage = new Storage(client);
+export const storage = new Storage(client);
 
  const avatars = new Avatars(client);
 
