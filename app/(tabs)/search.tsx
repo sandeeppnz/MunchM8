@@ -1,6 +1,5 @@
-import seed from '@/lib/seed'
 import React from 'react'
-import { Button, Text } from 'react-native'
+import { Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Search = () => {
@@ -8,9 +7,9 @@ const Search = () => {
     <SafeAreaView>
       <Text>search</Text>
 
-      <Button title='Seed' onPress={()=> seed().catch(
+      {/* <Button title='Seed' onPress={()=> seed().catch(
         (error)=> console.log("failed to see the db", error)
-        )} />
+        )} /> */}
     </SafeAreaView>
   )
 }
