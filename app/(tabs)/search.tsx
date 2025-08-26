@@ -62,13 +62,12 @@ const Search = () => {
                   </Text>
                 </View>
               </View>
-
               <CartButton />
             </View>
-
             <SearchBar />
-
-            <Filter categories={categories!} />
+            {(data?.length > 0 || !query) && (
+              <Filter categories={categories!} />
+            )}
           </View>
         )}
         ListEmptyComponent={
