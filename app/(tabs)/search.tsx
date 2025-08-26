@@ -8,7 +8,7 @@ import { MenuItem } from "@/type";
 import cn from "clsx";
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Search = () => {
@@ -71,7 +71,14 @@ const Search = () => {
             <Filter categories={categories!} />
           </View>
         )}
-        ListEmptyComponent={() => !loading && <Text>No results</Text>}
+        ListEmptyComponent={
+          () => !loading && 
+          <><Image source={require('../../assets/images/empty-state.png')} className="w-full h-60 mt-10" resizeMode="contain" />
+          <Text className="text-center text-dark-100 text-lg">Nothing matched your search</Text>
+          <Text className="text-center text-gray-200">Try a different search term or check for typos.</Text>
+          </>
+        
+        }
       />
     </SafeAreaView>
   );
