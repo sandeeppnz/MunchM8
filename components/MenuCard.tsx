@@ -15,7 +15,7 @@ const MenuCard = ({ item: { $id, image_url, name, price }}: { item: MenuItem}) =
             <TouchableOpacity 
                 onPress={() => addItem({ id: $id, name, price, image_url: imageUrl, customizations: []})}
                 >
-                <Text className="paragraph-bold text-primary">Add to Cart +</Text>
+                <Text className="paragraph-bold text-primary">+ Add to Cart</Text>
             </TouchableOpacity>
         </TouchableOpacity>
     )
