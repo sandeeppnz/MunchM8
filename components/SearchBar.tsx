@@ -18,7 +18,13 @@ const Searchbar = () => {
     }
 
     return (
-        <View className="searchbar">
+        <View className="searchbar"  style={{
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5, // for Android
+    }}>
             <TextInput
                 className="flex-1 p-5"
                 placeholder="Search for pizzas, burgers..."
