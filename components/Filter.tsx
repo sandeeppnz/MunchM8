@@ -1,7 +1,7 @@
 import { Category } from "@/type";
 import cn from "clsx";
 import { router, useLocalSearchParams } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList, Platform, Text, TouchableOpacity } from 'react-native';
 
 const Filter = ({ categories }: { categories: Category[] }) => {
@@ -20,6 +20,10 @@ const Filter = ({ categories }: { categories: Category[] }) => {
         ? [{ $id: 'all', name: 'All' }, ...categories]
         : [{ $id: 'all', name: 'All' }]
 
+    useEffect(() => {
+        setActive(searchParams.category || 'all');
+    }, [searchParams.category]);
+        
     return (
         <FlatList
             data={filterData}
