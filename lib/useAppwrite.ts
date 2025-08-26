@@ -29,6 +29,7 @@ const useAppwrite = <T, P extends Record<string, string | number>>({
             setError(null);
 
             try {
+                console.log(fetchParams);
                 const result = await fn({ ...fetchParams });
                 setData(result);
             } catch (err: unknown) {
