@@ -1,6 +1,7 @@
 import CustomButton from "@/components/CustomButton";
 import CustomInput from "@/components/CustomInput";
 import { signIn } from "@/lib/appwrite";
+import useAuthStore from "@/store/auth.store";
 import * as Sentry from "@sentry/react-native";
 import { Link, router } from "expo-router";
 import React, { useState } from "react";
@@ -10,6 +11,7 @@ const SignIn = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
   const [showPanel, setShowPanel] = useState(false);
+  const {isAuthenticated, setIsAuthenticated} = useAuthStore();
 
   const submit = async () => {
     const { email, password } = form;
@@ -35,6 +37,7 @@ const SignIn = () => {
 
   const goHome = () => {
     setShowPanel(false);
+    setIsAuthenticated(true); 
     router.replace("/"); // Adjust route if needed
   };
 
@@ -78,11 +81,17 @@ const SignIn = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.panel}>
-
-            <Image source={require('../../assets/images/success.png')} style={{ width: 100, height: 100, marginBottom: 20 }} />  
+            <Image
+              source={require("../../assets/images/success.png")}
+              style={{ width: 100, height: 100, marginBottom: 20 }}
+            />
 
             <Text style={styles.panelText}>Sign in successful!</Text>
-            <CustomButton title="Go to Homepage" isLoading={false} onPress={goHome} />
+            <CustomButton
+              title="Go to Homepage"
+              isLoading={false}
+              onPress={goHome}
+            />
           </View>
         </View>
       </Modal>
